@@ -9,7 +9,7 @@ public class Database {
     private static final ArrayList<Entity> entities = new ArrayList<>();
     private static int nextId = 1;
 
-    private static HashMap<Integer, Validator> validators;
+    private static HashMap<Integer, Validator> validators = new HashMap<>();
 
     private Database() {}
 
