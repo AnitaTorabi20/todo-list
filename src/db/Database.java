@@ -1,5 +1,4 @@
 package db;
-import db.*;
 import db.exception.EntityNotFoundException;
 
 import java.util.ArrayList;
@@ -10,9 +9,9 @@ public class Database {
 
     private Database() {}
 
-    public static void add(Entity e) {
-        e.id = nextId++;
-        entities.add(e);
+    public static void add(Entity entity) {
+        entity.id = nextId++;
+        entities.add(entity);
     }
 
     public static Entity get(int id) {
@@ -34,13 +33,13 @@ public class Database {
         throw new EntityNotFoundException(id);
     }
 
-    public static void update(Entity e) {
+    public static void update(Entity entity) {
         for (int i = 0; i < entities.size(); i++) {
-            if (entities.get(i).id == e.id) {
-                entities.set(i, e);
+            if (entities.get(i).id == entity.id) {
+                entities.set(i, entity);
                 return;
             }
         }
-        throw new EntityNotFoundException(e.id);
+        throw new EntityNotFoundException(entity.id);
     }
 }
