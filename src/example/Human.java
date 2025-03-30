@@ -1,4 +1,5 @@
 package example;
+import db.*;
 
 public class Human extends Entity {
     public String name;
