@@ -1,7 +1,7 @@
 package db;
-import db.exception.EntityNotFoundException;
-import db.exception.InvalidEntityException;
+import db.exception.*;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.ArrayList;
 
@@ -25,6 +25,13 @@ public class Database {
         if (validator != null) {
             validator.validate(entity);
         }
+
+        if (entity instanceof Trackable) {
+            Date currentDate = new Date();
+            ((Trackable) entity).setCreationDate(currentDate);
+            ((Trackable) entity).setLastModificationDate(currentDate);
+        }
+
         entity.id = nextId++;
         entities.add(entity.copy());
     }
@@ -53,6 +60,12 @@ public class Database {
         if (validator != null) {
             validator.validate(entity);
         }
+
+        if (entity instanceof Trackable) {
+            Date currentDate = new Date();
+            ((Trackable) entity).setLastModificationDate(currentDate);
+        }
+
         for (int i = 0; i < entities.size(); i++) {
             if (entities.get(i).id == entity.id) {
                 entities.set(i, entity.copy());
