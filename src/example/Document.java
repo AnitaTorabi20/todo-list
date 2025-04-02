@@ -6,6 +6,7 @@ public class Document extends Entity implements Trackable {
     public String content;
     private Date creationDate;
     private Date lastModificationDate;
+    public static final int DOCUMENT_ENTITY_CODE = 13;
 
     public Document(String content) {
         this.content = content;
@@ -44,7 +45,7 @@ public class Document extends Entity implements Trackable {
 
     @Override
     public int getEntityCode() {
-        return 1;
+        return DOCUMENT_ENTITY_CODE;
     }
 
 }
