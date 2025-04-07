@@ -47,8 +47,8 @@ public class Step extends Entity {
         this.status = status;
     }
 
-    public int getTaskRef(int taskRef) {
-        return taskRef;
+    public int getTaskRef() {
+        return this.taskRef;
     }
 
     public void setTaskRef(int taskRef) {
