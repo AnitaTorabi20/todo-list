@@ -31,6 +31,7 @@ public class Task extends Entity implements Trackable {
         copy.status = this.status;
         copy.creationDate = this.creationDate;
         copy.lastModificationDate = this.lastModificationDate;
+        copy.setId(this.getId());
         return copy;
     }
 

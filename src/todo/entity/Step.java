@@ -10,18 +10,35 @@ public class Step extends Entity {
 
     private String title;
     private Status status;
+    private Date creationDate;
+    private Date lastModificationDate;
     private int taskRef;
     public static final int STEP_ENTITY_CODE = 18;
 
     public Step(String title, int taskRef) {
         this.title = title;
-        this.status = Step.Status.NotStarted;
+        this.taskRef = taskRef;
+        this.status = Status.NotStarted;
+        this.creationDate = new Date();
+        this.lastModificationDate = new Date();
     }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public Date getLastModificationDate() {
+        return lastModificationDate;
+    }
+
 
     @Override
     public Step copy() {
         Step copy = new Step(this.title, this.taskRef);
         copy.status = this.status;
+        copy.creationDate = this.creationDate;
+        copy.lastModificationDate = this.lastModificationDate;
+        copy.setId(this.getId());
         return copy;
     }
 
