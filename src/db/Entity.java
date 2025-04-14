@@ -1,9 +1,16 @@
 package db;
 
-public  abstract class Entity {
+public abstract class Entity {
     public int id;
 
-    public abstract Entity copy();
+    public int getId() {
+        return this.id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public abstract Entity copy();
     public abstract int getEntityCode();
 }
